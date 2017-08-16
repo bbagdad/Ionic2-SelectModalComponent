@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button clear *ngIf="modalData.showCancelButton" (click)="dismiss()">
+        <span ion-text color="light">{{modalData.cancelText}}</span>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="modalData.title">{{modalData.title}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar *ngIf="modalData.showSearchBar"
+                   [type]="modalData.searchInputType"
+                   [placeholder]="modalData.searchPlaceholder"
+                   (ionInput)="onSearch($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items;" (click)="selectItem(item)">{{item.Name}}</button>
+  </ion-list>
+</ion-content>
